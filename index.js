@@ -25,7 +25,7 @@ const LOCATION = process.env.WEATHER_LOCATION;
 const url = `http://api.openweathermap.org/data/2.5/weather?q=${LOCATION}&APPID=${API_KEY}&units=metric`;
 
 const server = http.createServer((req, res) => {
-  cron.schedule('0 0 */3 * * *', function () {
+  cron.schedule('* * * * * *', function () {
     fetch(url)
       .then(function(response) {
         return response.json();
