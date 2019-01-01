@@ -4,14 +4,12 @@
   "description": "Twitter bot for weather",
   "main": "index.js",
   "scripts": {
-    "start": "forever index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.2.0",
-    "forever": "^0.15.3",
     "node-cron": "^2.0.3",
     "node-fetch": "^2.3.0",
     "twitter": "^1.7.1"
