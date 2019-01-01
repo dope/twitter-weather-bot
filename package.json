@@ -1,5 +1,5 @@
 {
-  "name": "lcweather",
+  "name": "twitter-weather-bot",
   "version": "1.0.0",
   "description": "Twitter bot for weather",
   "main": "index.js",
