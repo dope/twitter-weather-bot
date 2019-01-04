@@ -22,9 +22,38 @@ fetch(url)
     return response.json();
   })
   .then(function(weather) {
-    const output = `Currently in ${LOCATION} the tempature is ${weather.main.temp} with a high of ${
+    const label = weather.weather[0].description;
+
+    // TODO: clean this up
+    function icon() {
+      if (label.includes("clouds")) {
+        return `☁ `;
+      }
+
+      if (label.includes("clear")) {
+        return `☀️ `;
+      }
+
+      if (label.includes("rain")) {
+        return `🌧 `;
+      }
+
+      if (label.includes("thunderstorm")) {
+        return `⛈ `;
+      }
+
+      if (label.includes("snow")) {
+        return `❄️ `;
+      }
+
+      return `⭐️ `;
+    }
+
+    const output = `${icon()} Currently in ${LOCATION} the tempature is ${Math.round(
+      weather.main.temp
+    )}°C with a high of ${Math.round(weather.main.temp_max)}°C and a low of ${Math.round(
       weather.main.temp_min
-    } and a low of ${weather.main.temp_max}. #${weather.weather[0].main} #Weather`;
+    )}°C.`;
 
     console.log(output);
 
