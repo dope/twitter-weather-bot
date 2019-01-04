@@ -51,7 +51,11 @@ fetch(url)
 
     function time() {
       const time = new Date();
-      return `${time.getHours()}:${time.getMinutes()}`;
+      if (time.getHours() === 7) {
+        return `7am`
+      } else {
+        return `6pm`
+      }
     }
 
     const output = `${icon()} It's ${time()} in ${LOCATION} the temperature is ${Math.round(
@@ -60,7 +64,7 @@ fetch(url)
       weather.main.temp_min
     )}°C.`;
 
-    console.log(output);
+    console.log(output)
 
     const params = { screen_name: "nodejs" };
     client.post("statuses/update", { status: output }, function(error, tweet, response) {
