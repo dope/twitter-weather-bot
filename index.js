@@ -49,7 +49,12 @@ fetch(url)
       return `⭐️ `;
     }
 
-    const output = `${icon()} Currently in ${LOCATION} the tempature is ${Math.round(
+    function time() {
+      const time = new Date();
+      return `${time.getHours()}:${time.getMinutes()}`;
+    }
+
+    const output = `${icon()} It's ${time()} in ${LOCATION} the temperature is ${Math.round(
       weather.main.temp
     )}°C with a high of ${Math.round(weather.main.temp_max)}°C and a low of ${Math.round(
       weather.main.temp_min
